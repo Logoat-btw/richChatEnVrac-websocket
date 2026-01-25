@@ -1,0 +1,12 @@
+@use "sass:map";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+:global(.h-85) {
+  height: 85%;
+}
+
+.MyApp {
+  color: #76a45b;
+}

@@ -1,0 +1,37 @@
+@use "sass:map";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+$navbar-size: 40px + 4px*2;
+
+.bodyNavbar{
+  padding-top: $navbar-size;
+}
+
+:global(.top-view) {
+  top: $navbar-size;
+}
+
+:global(.h-view) {
+  height: calc(100vh - $navbar-size);
+}
+
+:global(.mh-view) {
+  height: calc(100vh - $navbar-size);
+}
+
+// @media (min-width: map.get($grid-breakpoints, "xxl")) {
+//   .bodyNavbar{
+//     padding-top: 64px + 4*2 + 12;
+//   }
+//   :global(.top-view) {
+//     top: 64px + 4*2 + 12;
+//   }
+//   :global(.h-view) {
+//     height: calc(100vh - 64px - 4*2px - 12px);
+//   }
+//   :global(.mh-view) {
+//     max-height: calc(100vh - 64px - 4*2px - 12px);
+//   }
+// }

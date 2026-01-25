@@ -1,0 +1,35 @@
+name: rich-chat
+
+services:
+    server:
+        build:
+            context: ../
+        volumes:
+            - ../src/main/resources/application.properties:/application/application.properties
+            - ../../rich-chat/build:/var/www/rich-chat:ro
+        environment:
+            - SPRING_DATA_MONGODB_HOST=mongo
+            - SPRING_DATA_MONGODB_PORT=27017
+        networks:
+            - rich-net
+        ports:
+            - 127.0.0.1:8080:8080
+        depends_on:
+            - mongo
+    mongo:
+        image: mongo:8.0.13
+        restart: always
+        volumes:
+            - mongodata:/data/db
+            - mongoconfig:/data/configdb
+        networks:
+            - rich-net
+        # ports:
+        #   - 127.0.0.1:27017:27017
+
+volumes:
+    mongodata:
+    mongoconfig:
+
+networks:
+    rich-net:
